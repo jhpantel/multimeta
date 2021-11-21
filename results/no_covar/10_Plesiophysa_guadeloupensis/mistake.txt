@@ -1,0 +1,16 @@
+Read 4170 items
+Read 4170 items
+Read 8340 items
+Le chargement a nécessité le package : coda
+Linked to JAGS 4.0.0
+Loaded modules: basemod,bugs
+Warning messages:
+1: le package 'rjags' a été compilé avec la version R 3.2.5 
+2: le package 'coda' a été compilé avec la version R 3.2.3 
+Warning messages:
+1: In max(unique(x), na.rm = T) :
+  aucun argument pour max ; -Inf est renvoyé
+2: In max(unique(x), na.rm = T) :
+  aucun argument pour max ; -Inf est renvoyé
+3: In max(unique(x), na.rm = T) :
+  aucun argument pour max ; -Inf est renvoyé

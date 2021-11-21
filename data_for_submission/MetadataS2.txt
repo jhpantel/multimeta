@@ -1,0 +1,334 @@
+J.H. Pantel, T. Lamy, M. Dubart, J.-P. Pointier, P. Jarne, and P. David. Metapopulation dynamics of multiple species in a heterogeneous landscape. Ecological Monographs.
+
+Data S2. Data and code to analyze 27 snail taxa using metapopulation model with covariates.
+
+Authors: J.H. Pantel [1,2], T. Lamy [2,3], M. Dubart [2], J.-P. Pointier [4], P. Jarne [2] and P. David [2]
+
+Affiliations:
+1. Department of Computer Science, Mathematics, and Environmental Science, The American University of Paris, 6 rue du Colonel Combes, 75007 Paris, France
+2. CEFE UMR 5175, CNRS - Université de Montpellier - Université Paul-Valéry Montpellier – IRD - EPHE, 1919 route de Mende, 34293 Montpellier cedex 5, France
+3. University of California, Santa Barbara Marine Science Institute, Bldg 520 Rm 3407 Fl 3L, Santa Barbara, CA 93106-6150
+4. CRIOBE, USR 3278 CNRS–EPHE, PSL Research University, Université de Perpignan, 66880 Perpignan cedex, France
+
+File list:
+
+1_Gundlachia_radiata/model_2_cov.txt
+1_Gundlachia_radiata/dry_final.txt
+1_Gundlachia_radiata/presence.txt
+1_Gundlachia_radiata/state.txt
+1_Gundlachia_radiata/colsource.txt
+1_Gundlachia_radiata/cov.txt
+1_Gundlachia_radiata/habit.txt
+1_Gundlachia_radiata/pluvio.txt
+1_Gundlachia_radiata/JHP_JAGS_covar.R
+
+2_Drepanotrema_lucidum/model_2_cov.txt
+2_Drepanotrema_lucidum/dry_final.txt
+2_Drepanotrema_lucidum/presence.txt
+2_Drepanotrema_lucidum/state.txt
+2_Drepanotrema_lucidum/colsource.txt
+2_Drepanotrema_lucidum/cov.txt
+2_Drepanotrema_lucidum/habit.txt
+2_Drepanotrema_lucidum/pluvio.txt
+2_Drepanotrema_lucidum/JHP_JAGS_covar.R
+
+3_Drepanotrema_depressissimum/model_2_cov.txt
+3_Drepanotrema_depressissimum/dry_final.txt
+3_Drepanotrema_depressissimum/presence.txt
+3_Drepanotrema_depressissimum/state.txt
+3_Drepanotrema_depressissimum/colsource.txt
+3_Drepanotrema_depressissimum/cov.txt
+3_Drepanotrema_depressissimum/habit.txt
+3_Drepanotrema_depressissimum/pluvio.txt
+3_Drepanotrema_depressissimum/JHP_JAGS_covar.R
+
+4_Drepanotrema_cimex/model_2_cov.txt
+4_Drepanotrema_cimex/dry_final.txt
+4_Drepanotrema_cimex/presence.txt
+4_Drepanotrema_cimex/state.txt
+4_Drepanotrema_cimex/colsource.txt
+4_Drepanotrema_cimex/cov.txt
+4_Drepanotrema_cimex/habit.txt
+4_Drepanotrema_cimex/pluvio.txt
+4_Drepanotrema_cimex/JHP_JAGS_covar.R
+
+5_Drepanotrema_aeruginosum/model_2_cov.txt
+5_Drepanotrema_aeruginosum/dry_final.txt
+5_Drepanotrema_aeruginosum/presence.txt
+5_Drepanotrema_aeruginosum/state.txt
+5_Drepanotrema_aeruginosum/colsource.txt
+5_Drepanotrema_aeruginosum/cov.txt
+5_Drepanotrema_aeruginosum/habit.txt
+5_Drepanotrema_aeruginosum/pluvio.txt
+5_Drepanotrema_aeruginosum/JHP_JAGS_covar.R
+
+6_Aplexa_marmorata/model_2_cov.txt
+6_Aplexa_marmorata/dry_final.txt
+6_Aplexa_marmorata/presence.txt
+6_Aplexa_marmorata/state.txt
+6_Aplexa_marmorata/colsource.txt
+6_Aplexa_marmorata/cov.txt
+6_Aplexa_marmorata/habit.txt
+6_Aplexa_marmorata/pluvio.txt
+6_Aplexa_marmorata/JHP_JAGS_covar.R
+
+7_Physa_acuta/model_2_cov.txt
+7_Physa_acuta/dry_final.txt
+7_Physa_acuta/presence.txt
+7_Physa_acuta/state.txt
+7_Physa_acuta/colsource.txt
+7_Physa_acuta/cov.txt
+7_Physa_acuta/habit.txt
+7_Physa_acuta/pluvio.txt
+7_Physa_acuta/JHP_JAGS_covar.R
+
+8_Lymnaea_columella/model_2_cov.txt
+8_Lymnaea_columella/dry_final.txt
+8_Lymnaea_columella/presence.txt
+8_Lymnaea_columella/state.txt
+8_Lymnaea_columella/colsource.txt
+8_Lymnaea_columella/cov.txt
+8_Lymnaea_columella/habit.txt
+8_Lymnaea_columella/pluvio.txt
+8_Lymnaea_columella/JHP_JAGS_covar.R
+
+9_Lymnaea_cubensis/model_2_cov.txt
+9_Lymnaea_cubensis/dry_final.txt
+9_Lymnaea_cubensis/presence.txt
+9_Lymnaea_cubensis/state.txt
+9_Lymnaea_cubensis/colsource.txt
+9_Lymnaea_cubensis/cov.txt
+9_Lymnaea_cubensis/habit.txt
+9_Lymnaea_cubensis/pluvio.txt
+9_Lymnaea_cubensis/JHP_JAGS_covar.R
+
+10_Plesiophysa_guadeloupensis/model_2_cov.txt
+10_Plesiophysa_guadeloupensis/dry_final.txt
+10_Plesiophysa_guadeloupensis/presence.txt
+10_Plesiophysa_guadeloupensis/state.txt
+10_Plesiophysa_guadeloupensis/colsource.txt
+10_Plesiophysa_guadeloupensis/cov.txt
+10_Plesiophysa_guadeloupensis/habit.txt
+10_Plesiophysa_guadeloupensis/pluvio.txt
+10_Plesiophysa_guadeloupensis/JHP_JAGS_covar.R
+
+11_Biomphalaria_straminea/model_2_cov.txt
+11_Biomphalaria_straminea/dry_final.txt
+11_Biomphalaria_straminea/presence.txt
+11_Biomphalaria_straminea/state.txt
+11_Biomphalaria_straminea/colsource.txt
+11_Biomphalaria_straminea/cov.txt
+11_Biomphalaria_straminea/habit.txt
+11_Biomphalaria_straminea/pluvio.txt
+11_Biomphalaria_straminea/JHP_JAGS_covar.R
+
+12_Biomphalaria_glabrata/model_2_cov.txt
+12_Biomphalaria_glabrata/dry_final.txt
+12_Biomphalaria_glabrata/presence.txt
+12_Biomphalaria_glabrata/state.txt
+12_Biomphalaria_glabrata/colsource.txt
+12_Biomphalaria_glabrata/cov.txt
+12_Biomphalaria_glabrata/habit.txt
+12_Biomphalaria_glabrata/pluvio.txt
+12_Biomphalaria_glabrata/JHP_JAGS_covar.R
+
+13_Biomphalaria_schrammi/model_2_cov.txt
+13_Biomphalaria_schrammi/dry_final.txt
+13_Biomphalaria_schrammi/presence.txt
+13_Biomphalaria_schrammi/state.txt
+13_Biomphalaria_schrammi/colsource.txt
+13_Biomphalaria_schrammi/cov.txt
+13_Biomphalaria_schrammi/habit.txt
+13_Biomphalaria_schrammi/pluvio.txt
+13_Biomphalaria_schrammi/JHP_JAGS_covar.R
+
+14_Pomacea_glauca/model_2_cov.txt
+14_Pomacea_glauca/dry_final.txt
+14_Pomacea_glauca/presence.txt
+14_Pomacea_glauca/state.txt
+14_Pomacea_glauca/colsource.txt
+14_Pomacea_glauca/cov.txt
+14_Pomacea_glauca/habit.txt
+14_Pomacea_glauca/pluvio.txt
+14_Pomacea_glauca/JHP_JAGS_covar.R
+
+15_Pyrgophorus_coronatus/model_2_cov.txt
+15_Pyrgophorus_coronatus/dry_final.txt
+15_Pyrgophorus_coronatus/presence.txt
+15_Pyrgophorus_coronatus/state.txt
+15_Pyrgophorus_coronatus/colsource.txt
+15_Pyrgophorus_coronatus/cov.txt
+15_Pyrgophorus_coronatus/habit.txt
+15_Pyrgophorus_coronatus/pluvio.txt
+15_Pyrgophorus_coronatus/JHP_JAGS_covar.R
+
+16_Marisa_cornuarietis/model_2_cov.txt
+16_Marisa_cornuarietis/dry_final.txt
+16_Marisa_cornuarietis/presence.txt
+16_Marisa_cornuarietis/state.txt
+16_Marisa_cornuarietis/colsource.txt
+16_Marisa_cornuarietis/cov.txt
+16_Marisa_cornuarietis/habit.txt
+16_Marisa_cornuarietis/pluvio.txt
+16_Marisa_cornuarietis/JHP_JAGS_covar.R
+
+17_Melanoides_tuberculata_PAP/model_2_cov.txt
+17_Melanoides_tuberculata_PAP/dry_final.txt
+17_Melanoides_tuberculata_PAP/presence.txt
+17_Melanoides_tuberculata_PAP/state.txt
+17_Melanoides_tuberculata_PAP/colsource.txt
+17_Melanoides_tuberculata_PAP/cov.txt
+17_Melanoides_tuberculata_PAP/habit.txt
+17_Melanoides_tuberculata_PAP/pluvio.txt
+17_Melanoides_tuberculata_PAP/JHP_JAGS_covar.R
+
+18_Melanoides_tuberculata_GOS/model_2_cov.txt
+18_Melanoides_tuberculata_GOS/dry_final.txt
+18_Melanoides_tuberculata_GOS/presence.txt
+18_Melanoides_tuberculata_GOS/state.txt
+18_Melanoides_tuberculata_GOS/colsource.txt
+18_Melanoides_tuberculata_GOS/cov.txt
+18_Melanoides_tuberculata_GOS/habit.txt
+18_Melanoides_tuberculata_GOS/pluvio.txt
+18_Melanoides_tuberculata_GOS/JHP_JAGS_covar.R
+
+19_Melanoides_tuberculata_FAL/model_2_cov.txt
+19_Melanoides_tuberculata_FAL/dry_final.txt
+19_Melanoides_tuberculata_FAL/presence.txt
+19_Melanoides_tuberculata_FAL/state.txt
+19_Melanoides_tuberculata_FAL/colsource.txt
+19_Melanoides_tuberculata_FAL/cov.txt
+19_Melanoides_tuberculata_FAL/habit.txt
+19_Melanoides_tuberculata_FAL/pluvio.txt
+19_Melanoides_tuberculata_FAL/JHP_JAGS_covar.R
+
+20_Melanoides_tuberculata_MAD/model_2_cov.txt
+20_Melanoides_tuberculata_MAD/dry_final.txt
+20_Melanoides_tuberculata_MAD/presence.txt
+20_Melanoides_tuberculata_MAD/state.txt
+20_Melanoides_tuberculata_MAD/colsource.txt
+20_Melanoides_tuberculata_MAD/cov.txt
+20_Melanoides_tuberculata_MAD/habit.txt
+20_Melanoides_tuberculata_MAD/pluvio.txt
+20_Melanoides_tuberculata_MAD/JHP_JAGS_covar.R
+
+21_Melanoides_tuberculata_CPF/model_2_cov.txt
+21_Melanoides_tuberculata_CPF/dry_final.txt
+21_Melanoides_tuberculata_CPF/presence.txt
+21_Melanoides_tuberculata_CPF/state.txt
+21_Melanoides_tuberculata_CPF/colsource.txt
+21_Melanoides_tuberculata_CPF/cov.txt
+21_Melanoides_tuberculata_CPF/habit.txt
+21_Melanoides_tuberculata_CPF/pluvio.txt
+21_Melanoides_tuberculata_CPF/JHP_JAGS_covar.R
+
+22_Melanoides_tuberculata_SEN/model_2_cov.txt
+22_Melanoides_tuberculata_SEN/dry_final.txt
+22_Melanoides_tuberculata_SEN/presence.txt
+22_Melanoides_tuberculata_SEN/state.txt
+22_Melanoides_tuberculata_SEN/colsource.txt
+22_Melanoides_tuberculata_SEN/cov.txt
+22_Melanoides_tuberculata_SEN/habit.txt
+22_Melanoides_tuberculata_SEN/pluvio.txt
+22_Melanoides_tuberculata_SEN/JHP_JAGS_covar.R
+
+23_Tarebia_granifera/model_2_cov.txt
+23_Tarebia_granifera/dry_final.txt
+23_Tarebia_granifera/presence.txt
+23_Tarebia_granifera/state.txt
+23_Tarebia_granifera/colsource.txt
+23_Tarebia_granifera/cov.txt
+23_Tarebia_granifera/habit.txt
+23_Tarebia_granifera/pluvio.txt
+23_Tarebia_granifera/JHP_JAGS_covar.R
+
+24_Neritina_virginea/model_2_cov.txt
+24_Neritina_virginea/dry_final.txt
+24_Neritina_virginea/presence.txt
+24_Neritina_virginea/state.txt
+24_Neritina_virginea/colsource.txt
+24_Neritina_virginea/cov.txt
+24_Neritina_virginea/habit.txt
+24_Neritina_virginea/pluvio.txt
+24_Neritina_virginea/JHP_JAGS_covar.R
+
+25_Eupera_viridans/model_2_cov.txt
+25_Eupera_viridans/dry_final.txt
+25_Eupera_viridans/presence.txt
+25_Eupera_viridans/state.txt
+25_Eupera_viridans/colsource.txt
+25_Eupera_viridans/cov.txt
+25_Eupera_viridans/habit.txt
+25_Eupera_viridans/pluvio.txt
+25_Eupera_viridans/JHP_JAGS_covar.R
+
+26_Indoplanorbis_exustus/model_2_cov.txt
+26_Indoplanorbis_exustus/dry_final.txt
+26_Indoplanorbis_exustus/presence.txt
+26_Indoplanorbis_exustus/state.txt
+26_Indoplanorbis_exustus/colsource.txt
+26_Indoplanorbis_exustus/cov.txt
+26_Indoplanorbis_exustus/habit.txt
+26_Indoplanorbis_exustus/pluvio.txt
+26_Indoplanorbis_exustus/JHP_JAGS_covar.R
+
+27_Helisoma_duryi/model_2_cov.txt
+27_Helisoma_duryi/dry_final.txt
+27_Helisoma_duryi/presence.txt
+27_Helisoma_duryi/state.txt
+27_Helisoma_duryi/colsource.txt
+27_Helisoma_duryi/cov.txt
+27_Helisoma_duryi/habit.txt
+27_Helisoma_duryi/pluvio.txt
+27_Helisoma_duryi/JHP_JAGS_covar.R
+
+Description:
+*Note that each of the 27 taxa has its own directory. Within that directory are 9 files that are described in more detail below. The files model_2_cov.txt, dry_final.txt, cov.txt, habit.txt, pluvio.txt, and JHP_JAGS_covar.R are identical across all 27 directories. The directories differ in the contents of presence.txt, state.txt, and colsource.txt, which are unique for each taxa.
+
+**Note that the directory title uses names for each taxa that reflect taxonomy circa 2015. We use updated taxonomic names in the manuscript. The correspondence between taxa names is as follows:
+      
+1_Gundlachia_radiata - Gu. radiata  
+2_Drepanotrema_lucidum - D. surinamense
+3_Drepanotrema_depressissimum - D. depressissimum
+4_Drepanotrema_cimex - D. cimex
+5_Drepanotrema_aeruginosum - D. aeruginosum
+6_Aplexa_marmorata - A. marmorata
+7_Physa_acuta - Ph. acuta
+8_Lymnaea_columella - Ps. columella
+9_Lymnaea_cubensis - Ga. cubensis
+10_Plesiophysa_guadeloupensis - Pl. guadeloupensis
+11_Biomphalaria_straminea - B. kuhniana
+12_Biomphalaria_glabrata - B. glabrata
+13_Biomphalaria_schrammi - B. schrammi
+14_Pomacea_glauca - Po. glauca
+15_Pyrgophorus_coronatus - Py. parvulus
+16_Marisa_cornuarietis - Ma. cornuarietis
+17_Melanoides_tuberculata_PAP - Me. tuberculata PAP
+18_Melanoides_tuberculata_GOS - Me. tuberculata GOS
+19_Melanoides_tuberculata_FAL - Me. tuberculata FAL
+20_Melanoides_tuberculata_MAD - Me. tuberculata MAD
+21_Melanoides_tuberculata_CPF - Me. tuberculata CPF
+22_Melanoides_tuberculata_SEN - Me. tuberculata SEN
+23_Tarebia_granifera - T. granifera
+24_Neritina_virginea - N. virginea
+25_Eupera_viridans - E. viridans
+26_Indoplanorbis_exustus - I. exustus
+27_Helisoma_duryi - H. duryi
+
+model_2_cov.txt - A model written in JAGS, for the estimation of metapopulation parameters in the model with covariates. The file is called in the R script JHP_JAGS_covar.R. This model is identical across all 27 directories.
+
+dry_final.txt - A data file containing the wet / dry state of each site in each year of the survey. The data dimensions are 278x15. For each site x year, a value is either 0 (the site was not visited that year or the data is missing for that year), 1 (the site is wet), 2 (the site is dry), or a value is given between 0-1 that gives an estimate of the probability a site was dry in a given year (this estimate results from GLMM described in the manuscript section 'Data'). This data file is identical across all 27 directories, and is identical to the data file with the same name in DataS1.
+
+presence.txt - A data file containing the detected / not-detected state of each site in each year of the survey, both for site visits and site-revisits. The data dimensions are 278x30. For each visit occasion, a value is either 0 (the site was not visited that year or the data is missing for that year), 1 (the taxa was not detected during that occasion), or 2 (the taxa was detected during that occasion). This data is unique for each of the 27 directories (the data is thus unique for each taxa). This data file is unique for each of the 27 directories (the data is thus unique for each taxa), and is identical to the data file with the same name in DataS1.
+
+state.txt - A data file containing the detected / not-detected state of each site in each year of the survey. This data is compiled across site visits and site re-visits, which explains why the data is not a duplicate of the 1st 15 columns in presence.txt. If a taxa was detected either in the visit or re-visit, it is indicated as detected in this data file. The data dimensions are 278x15. For each visit site x year, a value is either 0 (the site was not visited that year or the data is missing for that year), 1 (the taxa was not detected during that occasion), or 2 (the taxa was detected during that occasion). This data file is unique for each of the 27 directories (the data is thus unique for each taxa), and is identical to the data file with the same name in DataS1.
+
+colsource.txt - A data file containing the values for the covariate of local propagule pressure (D_it) for each site in each year of the survey. The data dimensions are 278x15. This data file is unique for each of the 27 directories (the data is thus unique for each taxa).
+
+cov.txt - A data file containing the values for the covariates site size (S_i), vegetation cover (V_i), water connectivity (C_i), and site stability (Stab_i) for each site in the survey. The data dimensions are 278x4. This data file is identical across all 27 directories.
+
+habit.txt - A data file containing the values for the covariates mangrove (m_i) and river (r_i) for each site in the survey. The data dimensions are 278x2. This data file is identical across all 27 directories.
+
+pluvio.txt - A data file containing the values for the covariates for rainfall in the little rainy season (LRS_t) and the rainy season (RS_t) for each year in the survey. The data file contains two ways of measuring rainfall in the rainy season, from July 1 to December 31 (rs_July_Dec) and for a 60-day period preceding the first day of the year's sampling campaign (rs_60_days). The column rs_July_Dec was used as the covariate in this manuscript. The data dimensions are 15x3 (although only columns 1 and 2 are used in this manuscript). This data file is identical across all 27 directories.
+
+JHP_JAGS_covar.R - A code file written in R that loads the data files, prepares the data for analysis using the JAGS model model_2_cov.txt, and returns the results of the Bayesian sampling to an output file called jsample.RData. This code file is identical across all 27 directories.

@@ -1,0 +1,17 @@
+Read 4170 items
+Read 4170 items
+Read 8340 items
+Read 4170 items
+Loading required package: coda
+Linked to JAGS 4.0.0
+Loaded modules: basemod,bugs
+Warning messages:
+1: package 'rjags' was built under R version 3.2.5 
+2: package 'coda' was built under R version 3.2.3 
+Warning messages:
+1: In max(unique(x), na.rm = T) :
+  no non-missing arguments to max; returning -Inf
+2: In max(unique(x), na.rm = T) :
+  no non-missing arguments to max; returning -Inf
+3: In max(unique(x), na.rm = T) :
+  no non-missing arguments to max; returning -Inf

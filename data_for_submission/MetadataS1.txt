@@ -1,0 +1,218 @@
+J.H. Pantel, T. Lamy, M. Dubart, J.-P. Pointier, P. Jarne, and P. David. Metapopulation dynamics of multiple species in a heterogeneous landscape. Ecological Monographs.
+
+Data S1. Data and code to analyze 27 snail taxa using metapopulation model without covariates.
+
+Authors: J.H. Pantel [1,2], T. Lamy [2,3], M. Dubart [2], J.-P. Pointier [4], P. Jarne [2] and P. David [2]
+
+Affiliations:
+1. Department of Computer Science, Mathematics, and Environmental Science, The American University of Paris, 6 rue du Colonel Combes, 75007 Paris, France
+2. CEFE UMR 5175, CNRS - Université de Montpellier - Université Paul-Valéry Montpellier – IRD - EPHE, 1919 route de Mende, 34293 Montpellier cedex 5, France
+3. University of California, Santa Barbara Marine Science Institute, Bldg 520 Rm 3407 Fl 3L, Santa Barbara, CA 93106-6150
+4. CRIOBE, USR 3278 CNRS–EPHE, PSL Research University, Université de Perpignan, 66880 Perpignan cedex, France
+
+File list:
+
+1_Gundlachia_radiata/model_full.txt
+1_Gundlachia_radiata/dry_final.txt
+1_Gundlachia_radiata/presence.txt
+1_Gundlachia_radiata/state.txt
+1_Gundlachia_radiata/JHP_JAGS.R
+
+2_Drepanotrema_lucidum/model_full.txt
+2_Drepanotrema_lucidum/dry_final.txt
+2_Drepanotrema_lucidum/presence.txt
+2_Drepanotrema_lucidum/state.txt
+2_Drepanotrema_lucidum/JHP_JAGS.R
+
+3_Drepanotrema_depressissimum/model_full.txt
+3_Drepanotrema_depressissimum/dry_final.txt
+3_Drepanotrema_depressissimum/presence.txt
+3_Drepanotrema_depressissimum/state.txt
+3_Drepanotrema_depressissimum/JHP_JAGS.R
+
+4_Drepanotrema_cimex/model_full.txt
+4_Drepanotrema_cimex/dry_final.txt
+4_Drepanotrema_cimex/presence.txt
+4_Drepanotrema_cimex/state.txt
+4_Drepanotrema_cimex/JHP_JAGS.R
+
+5_Drepanotrema_aeruginosum/model_full.txt
+5_Drepanotrema_aeruginosum/dry_final.txt
+5_Drepanotrema_aeruginosum/presence.txt
+5_Drepanotrema_aeruginosum/state.txt
+5_Drepanotrema_aeruginosum/JHP_JAGS.R
+
+6_Aplexa_marmorata/model_full.txt
+6_Aplexa_marmorata/dry_final.txt
+6_Aplexa_marmorata/presence.txt
+6_Aplexa_marmorata/state.txt
+6_Aplexa_marmorata/JHP_JAGS.R
+
+7_Physa_acuta/model_full.txt
+7_Physa_acuta/dry_final.txt
+7_Physa_acuta/presence.txt
+7_Physa_acuta/state.txt
+7_Physa_acuta/JHP_JAGS.R
+
+8_Lymnaea_columella/model_full.txt
+8_Lymnaea_columella/dry_final.txt
+8_Lymnaea_columella/presence.txt
+8_Lymnaea_columella/state.txt
+8_Lymnaea_columella/JHP_JAGS.R
+
+9_Lymnaea_cubensis/model_full.txt
+9_Lymnaea_cubensis/dry_final.txt
+9_Lymnaea_cubensis/presence.txt
+9_Lymnaea_cubensis/state.txt
+9_Lymnaea_cubensis/JHP_JAGS.R
+
+10_Plesiophysa_guadeloupensis/model_full.txt
+10_Plesiophysa_guadeloupensis/dry_final.txt
+10_Plesiophysa_guadeloupensis/presence.txt
+10_Plesiophysa_guadeloupensis/state.txt
+10_Plesiophysa_guadeloupensis/JHP_JAGS.R
+
+11_Biomphalaria_straminea/model_full.txt
+11_Biomphalaria_straminea/dry_final.txt
+11_Biomphalaria_straminea/presence.txt
+11_Biomphalaria_straminea/state.txt
+11_Biomphalaria_straminea/JHP_JAGS.R
+
+12_Biomphalaria_glabrata/model_full.txt
+12_Biomphalaria_glabrata/dry_final.txt
+12_Biomphalaria_glabrata/presence.txt
+12_Biomphalaria_glabrata/state.txt
+12_Biomphalaria_glabrata/JHP_JAGS.R
+
+13_Biomphalaria_schrammi/model_full.txt
+13_Biomphalaria_schrammi/dry_final.txt
+13_Biomphalaria_schrammi/presence.txt
+13_Biomphalaria_schrammi/state.txt
+13_Biomphalaria_schrammi/JHP_JAGS.R
+
+14_Pomacea_glauca/model_full.txt
+14_Pomacea_glauca/dry_final.txt
+14_Pomacea_glauca/presence.txt
+14_Pomacea_glauca/state.txt
+14_Pomacea_glauca/JHP_JAGS.R
+
+15_Pyrgophorus_coronatus/model_full.txt
+15_Pyrgophorus_coronatus/dry_final.txt
+15_Pyrgophorus_coronatus/presence.txt
+15_Pyrgophorus_coronatus/state.txt
+15_Pyrgophorus_coronatus/JHP_JAGS.R
+
+16_Marisa_cornuarietis/model_full.txt
+16_Marisa_cornuarietis/dry_final.txt
+16_Marisa_cornuarietis/presence.txt
+16_Marisa_cornuarietis/state.txt
+16_Marisa_cornuarietis/JHP_JAGS.R
+
+17_Melanoides_tuberculata_PAP/model_full.txt
+17_Melanoides_tuberculata_PAP/dry_final.txt
+17_Melanoides_tuberculata_PAP/presence.txt
+17_Melanoides_tuberculata_PAP/state.txt
+17_Melanoides_tuberculata_PAP/JHP_JAGS.R
+
+18_Melanoides_tuberculata_GOS/model_full.txt
+18_Melanoides_tuberculata_GOS/dry_final.txt
+18_Melanoides_tuberculata_GOS/presence.txt
+18_Melanoides_tuberculata_GOS/state.txt
+18_Melanoides_tuberculata_GOS/JHP_JAGS.R
+
+19_Melanoides_tuberculata_FAL/model_full.txt
+19_Melanoides_tuberculata_FAL/dry_final.txt
+19_Melanoides_tuberculata_FAL/presence.txt
+19_Melanoides_tuberculata_FAL/state.txt
+19_Melanoides_tuberculata_FA/JHP_JAGS.R
+
+20_Melanoides_tuberculata_MAD/model_full.txt
+20_Melanoides_tuberculata_MAD/dry_final.txt
+20_Melanoides_tuberculata_MAD/presence.txt
+20_Melanoides_tuberculata_MAD/state.txt
+20_Melanoides_tuberculata_MAD/JHP_JAGS.R
+
+21_Melanoides_tuberculata_CPF/model_full.txt
+21_Melanoides_tuberculata_CPF/dry_final.txt
+21_Melanoides_tuberculata_CPF/presence.txt
+21_Melanoides_tuberculata_CPF/state.txt
+21_Melanoides_tuberculata_CPFJHP_JAGS.R
+
+22_Melanoides_tuberculata_SEN/model_full.txt
+22_Melanoides_tuberculata_SEN/dry_final.txt
+22_Melanoides_tuberculata_SEN/presence.txt
+22_Melanoides_tuberculata_SEN/state.txt
+22_Melanoides_tuberculata_SEN/JHP_JAGS.R
+
+23_Tarebia_granifera/model_full.txt
+23_Tarebia_granifera/dry_final.txt
+23_Tarebia_granifera/presence.txt
+23_Tarebia_granifera/state.txt
+23_Tarebia_graniferam/JHP_JAGS.R
+
+24_Neritina_virginea/model_full.txt
+24_Neritina_virginea/dry_final.txt
+24_Neritina_virginea/presence.txt
+24_Neritina_virginea/state.txt
+24_Neritina_virginea/JHP_JAGS.R
+
+25_Eupera_viridans/model_full.txt
+25_Eupera_viridans/dry_final.txt
+25_Eupera_viridans/presence.txt
+25_Eupera_viridans/state.txt
+25_Eupera_viridans/JHP_JAGS.R
+
+26_Indoplanorbis_exustus/model_full.txt
+26_Indoplanorbis_exustus/dry_final.txt
+26_Indoplanorbis_exustus/presence.txt
+26_Indoplanorbis_exustus/state.txt
+26_Indoplanorbis_exustus/JHP_JAGS.R
+
+27_Helisoma_duryi/model_full.txt
+27_Helisoma_duryi/dry_final.txt
+27_Helisoma_duryi/presence.txt
+27_Helisoma_duryi/state.txt
+27_Helisoma_duryi/JHP_JAGS.R
+
+Description:
+*Note that each of the 27 taxa has its own directory. Within that directory are 5 files that are described in more detail below. The files model_full.txt, dry_final.txt, and JHP_JAGS.R are identical across all 27 directories. The directories differ in the contents of presence.txt and state.txt, which are unique for each taxa.
+
+**Note that the directory title uses names for each taxa that reflect taxonomy circa 2015. We use updated taxonomic names in the manuscript. The correspondence between taxa names is as follows:
+      
+1_Gundlachia_radiata - Gu. radiata  
+2_Drepanotrema_lucidum - D. surinamense
+3_Drepanotrema_depressissimum - D. depressissimum
+4_Drepanotrema_cimex - D. cimex
+5_Drepanotrema_aeruginosum - D. aeruginosum
+6_Aplexa_marmorata - A. marmorata
+7_Physa_acuta - Ph. acuta
+8_Lymnaea_columella - Ps. columella
+9_Lymnaea_cubensis - Ga. cubensis
+10_Plesiophysa_guadeloupensis - Pl. guadeloupensis
+11_Biomphalaria_straminea - B. kuhniana
+12_Biomphalaria_glabrata - B. glabrata
+13_Biomphalaria_schrammi - B. schrammi
+14_Pomacea_glauca - Po. glauca
+15_Pyrgophorus_coronatus - Py. parvulus
+16_Marisa_cornuarietis - Ma. cornuarietis
+17_Melanoides_tuberculata_PAP - Me. tuberculata PAP
+18_Melanoides_tuberculata_GOS - Me. tuberculata GOS
+19_Melanoides_tuberculata_FAL - Me. tuberculata FAL
+20_Melanoides_tuberculata_MAD - Me. tuberculata MAD
+21_Melanoides_tuberculata_CPF - Me. tuberculata CPF
+22_Melanoides_tuberculata_SEN - Me. tuberculata SEN
+23_Tarebia_granifera - T. granifera
+24_Neritina_virginea - N. virginea
+25_Eupera_viridans - E. viridans
+26_Indoplanorbis_exustus - I. exustus
+27_Helisoma_duryi - H. duryi
+
+model_full.txt - A model written in JAGS, for the estimation of metapopulation parameters in the model without covariates. The file is called in the R script JHP_JAGS.R. This model is identical across all 27 directories.
+
+dry_final.txt - A data file containing the wet / dry state of each site in each year of the survey. The data dimensions are 278x15. For each site x year, a value is either 0 (the site was not visited that year or the data is missing for that year), 1 (the site is wet), 2 (the site is dry), or a value is given between 0-1 that gives an estimate of the probability a site was dry in a given year (this estimate results from GLMM described in the manuscript section 'Data'). This data is identical across all 27 directories.
+
+presence.txt - A data file containing the detected / not-detected state of each site in each year of the survey, both for site visits and site-revisits. The data dimensions are 278x30. For each visit occasion, a value is either 0 (the site was not visited that year or the data is missing for that year), 1 (the taxa was not detected during that occasion), or 2 (the taxa was detected during that occasion). This data is unique for each of the 27 directories (the data is thus unique for each taxa).
+
+state.txt - A data file containing the detected / not-detected state of each site in each year of the survey. This data is compiled across site visits and site re-visits, which explains why the data is not a duplicate of the 1st 15 columns in presence.txt. If a taxa was detected either in the visit or re-visit, it is indicated as detected in this data file. The data dimensions are 278x15. For each visit site x year, a value is either 0 (the site was not visited that year or the data is missing for that year), 1 (the taxa was not detected during that occasion), or 2 (the taxa was detected during that occasion). This data is unique for each of the 27 directories (the data is thus unique for each taxa).
+
+JHP_JAGS.R - A code file written in R that loads the data files, prepares the data for analysis using the JAGS model model_full.txt, and returns the results of the Bayesian sampling to an output file called jsample.RData. This code file is identical across all 27 directories.

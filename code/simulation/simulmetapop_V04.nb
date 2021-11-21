@@ -1,0 +1,1361 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     58546,       1353]
+NotebookOptionsPosition[     58007,       1337]
+NotebookOutlinePosition[     58397,       1353]
+CellTagsIndexPosition[     58354,       1350]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"spec", "=", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<1_Gundlachia_radiata\>\"", ",", "\"\<2_Drepanotrema_lucidum\>\"", 
+      ",", "\"\<3_Drepanotrema_depressissimum\>\"", ",", 
+      "\"\<4_Drepanotrema_cimex\>\"", ",", 
+      "\"\<5_Drepanotrema_aeruginosum\>\"", ",", "\"\<6_Aplexa_marmorata\>\"",
+       ",", "\"\<7_Physa_acuta\>\"", ",", "\"\<8_Lymnaea_columella\>\"", ",", 
+      "\"\<9_Lymnaea_cubensis\>\"", ",", 
+      "\"\<10_Plesiophysa_guadeloupensis\>\"", ",", 
+      "\"\<11_Biomphalaria_straminea\>\"", ",", 
+      "\"\<12_Biomphalaria_glabrata\>\"", ",", 
+      "\"\<13_Biomphalaria_schrammi\>\"", ",", "\"\<14_Pomacea_glauca\>\"", 
+      ",", "\"\<15_Pyrgophorus_coronatus\>\"", ",", 
+      "\"\<16_Marisa_cornuarietis\>\"", ",", 
+      "\"\<17_Melanoides_tuberculata_PAP\>\"", ",", 
+      "\"\<18_Melanoides_tuberculata_GOS\>\"", ",", 
+      "\"\<19_Melanoides_tuberculata_FAL\>\"", ",", 
+      "\"\<20_Melanoides_tuberculata_MAD\>\"", ",", 
+      "\"\<21_Melanoides_tuberculata_CPF\>\"", ",", 
+      "\"\<22_Melanoides_tuberculata_SEN\>\"", ",", 
+      "\"\<23_Tarebia_granifera\>\"", ",", "\"\<24_Neritina_virginea\>\"", 
+      ",", "\"\<25_Eupera_viridans\>\"", ",", 
+      "\"\<26_Indoplanorbis_exustus\>\"", ",", "\"\<27_Helisoma_duryi\>\""}], 
+     "}"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"spec", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<5_Drepanotrema_aeruginosum\>\"", ",", 
+       "\"\<10_Plesiophysa_guadeloupensis\>\""}], "}"}]}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Import", " ", "site", " ", "information"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sitetable", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/jhpantel/OneDrive/Documents/CNRS/pantel_work/manuscript/1_\
+metapopulation_manuscript/Accepted_Version/data/simulation/parameters/site_\
+table.csv\>\"", ",", "\"\<CSV\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"psi", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/jhpantel/OneDrive/Documents/CNRS/pantel_work/manuscript/1_\
+metapopulation_manuscript/Accepted_Version/data/simulation/parameters/param_\
+psi_bysite.csv\>\"", ",", "\"\<CSV\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"psi", "=", 
+   RowBox[{"psi", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", 
+      RowBox[{"1", ";;", 
+       RowBox[{"Length", "[", "spec", "]"}]}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sim", "=", "1000"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.667108460798794*^9, 3.6671085337280817`*^9}, {
+   3.667109777298424*^9, 3.667109782480838*^9}, {3.667111216919696*^9, 
+   3.6671112303896627`*^9}, {3.667111587526052*^9, 3.6671115883418617`*^9}, {
+   3.667111734299609*^9, 3.6671117349071817`*^9}, {3.667199502399716*^9, 
+   3.6671995107048607`*^9}, {3.667199768036005*^9, 3.6671997683010674`*^9}, {
+   3.6672001344062862`*^9, 3.667200134678019*^9}, {3.667200691411628*^9, 
+   3.667200693739379*^9}, {3.667201654868046*^9, 3.667201657257283*^9}, 
+   3.667201810051461*^9, {3.667204000937014*^9, 3.66720400789641*^9}, {
+   3.6672187803799343`*^9, 3.667218828189146*^9}, {3.667218866027396*^9, 
+   3.6672189145192003`*^9}, {3.667234858424715*^9, 3.6672348707859592`*^9}, {
+   3.667234909935211*^9, 3.6672349307254*^9}, {3.6672360781480217`*^9, 
+   3.667236078882681*^9}, {3.667454534002501*^9, 3.667454552992963*^9}, {
+   3.667454833499601*^9, 3.667454834441659*^9}, {3.66745998873311*^9, 
+   3.667459989355344*^9}, {3.667997064390883*^9, 3.667997065229013*^9}, {
+   3.667998021195157*^9, 3.66799802134693*^9}, {3.6680573032733927`*^9, 
+   3.668057341049515*^9}, {3.668241445194686*^9, 3.668241446401289*^9}, {
+   3.6682415163528376`*^9, 3.6682415441110926`*^9}, {3.6929631137201567`*^9, 
+   3.6929631223159657`*^9}, {3.692963169500915*^9, 3.692963173496448*^9}, {
+   3.69296327311299*^9, 3.692963286161075*^9}, {3.6929696317751975`*^9, 
+   3.6929696548696394`*^9}, {3.693199819410809*^9, 3.693199844977791*^9}, {
+   3.693201223254467*^9, 3.6932012306209803`*^9}, {3.69321583689434*^9, 
+   3.693215845914061*^9}, {3.693216043416984*^9, 3.693216056693842*^9}, {
+   3.844954828379387*^9, 3.844954839367497*^9}, {3.844954974548172*^9, 
+   3.844954988410378*^9}, {3.844959949014922*^9, 3.8449599810533733`*^9}, {
+   3.844986604761977*^9, 3.844986615429874*^9}, 
+   3.8449921190731773`*^9},ExpressionUUID->"4de0c904-b419-4f0d-82b1-\
+0ecdd8acc782"],
+
+Cell[BoxData[
+ RowBox[{"For", "[", 
+  RowBox[{
+   RowBox[{"k", "=", "1"}], ",", 
+   RowBox[{"k", "<", 
+    RowBox[{
+     RowBox[{"Length", "[", "spec", "]"}], "+", "1"}]}], ",", 
+   RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"occupancyrecord", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{",", 
+       RowBox[{"{", 
+        RowBox[{"sim", "-", "1"}], "}"}], ",", 
+       RowBox[{"{", "999", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"r", "=", "1"}], ",", 
+       RowBox[{"r", "<", "sim"}], ",", 
+       RowBox[{"r", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+        "define", " ", "initial", " ", "metapopulation", " ", "state"}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"(*", 
+        RowBox[{"permanent", " ", "characteristics"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{
+         RowBox[{"parameters", " ", 
+          RowBox[{"are", " ", ":", " ", 
+           RowBox[{"numbers", " ", "of", " ", "sites"}]}]}], ";", "  ", 
+         "island", ";", " ", 
+         RowBox[{
+         "colonisation", " ", "and", " ", "extinction", " ", "rates", " ", 
+          "dry", " ", "and", " ", "wet", " ", "for", " ", "each"}], ";", " ", 
+         
+         RowBox[{
+         "frequency", " ", "of", " ", "dessication", " ", "for", " ", "each", 
+          " ", "site"}], ";", 
+         RowBox[{"initial", " ", "state", " ", "dry", " ", "or", " ", "not"}],
+          ";", " ", 
+         RowBox[{
+         "occupied", " ", "or", " ", "not", " ", "for", " ", "each"}]}], 
+        "*)"}], "\[IndentingNewLine]", 
+       RowBox[{"(*", " ", 
+        RowBox[{"number", " ", "of", " ", "sites"}], "*)"}], 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"nsites", "=", "1000"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Associate", " ", "simulated", " ", "site", " ", "with", " ", 
+          "observed", " ", "site"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"draw", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"RandomInteger", "[", 
+            RowBox[{"{", 
+             RowBox[{"2", ",", "279"}], "}"}], "]"}], ",", 
+           RowBox[{"{", "nsites", "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"sitesimul", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"sitetable", "[", 
+            RowBox[{"[", 
+             RowBox[{"draw", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "]"}], "]"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", " ", 
+             RowBox[{"Length", "[", "draw", "]"}]}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"Pre", "-", 
+          RowBox[{
+          "allocate", " ", "record", " ", "of", " ", "average", " ", 
+           "occupancy", " ", "each", " ", "generation", " ", "of", " ", 
+           "simulation"}]}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"averageoccupancy", "[", "i", "]"}], "=", "0"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "999"}], "}"}]}], "]"}], ";", "\n", 
+        RowBox[{"(*", 
+         RowBox[{"colonisation", " ", "and", " ", "extinctionrates"}], "*)"}],
+         "\[IndentingNewLine]", 
+        RowBox[{"cW", "=", 
+         RowBox[{"Import", "[", 
+          RowBox[{
+           RowBox[{
+           "\"\</Users/jhpantel/OneDrive/Documents/CNRS/pantel_work/\
+manuscript/1_metapopulation_manuscript/Accepted_Version/data/simulation/\
+parameters/\>\"", " ", "<>", 
+            RowBox[{"spec", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "<>", 
+            "\"\<_site_intercept_cW.csv\>\""}], ",", "\"\<CSV\>\""}], "]"}]}],
+         ";", "\[IndentingNewLine]", 
+        RowBox[{"eW", "=", 
+         RowBox[{"Import", "[", 
+          RowBox[{
+           RowBox[{
+           "\"\</Users/jhpantel/OneDrive/Documents/CNRS/pantel_work/\
+manuscript/1_metapopulation_manuscript/Accepted_Version/data/simulation/\
+parameters/\>\"", " ", "<>", 
+            RowBox[{"spec", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "<>", 
+            "\"\<_site_intercept_eW.csv\>\""}], ",", "\"\<CSV\>\""}], "]"}]}],
+         ";", "\[IndentingNewLine]", 
+        RowBox[{"eD", "=", 
+         RowBox[{"Import", "[", 
+          RowBox[{
+           RowBox[{
+           "\"\</Users/jhpantel/OneDrive/Documents/CNRS/pantel_work/\
+manuscript/1_metapopulation_manuscript/Accepted_Version/data/simulation/\
+parameters/\>\"", " ", "<>", 
+            RowBox[{"spec", "[", 
+             RowBox[{"[", "k", "]"}], "]"}], "<>", 
+            "\"\<_site_intercept_eD.csv\>\""}], ",", "\"\<CSV\>\""}], "]"}]}],
+         ";", "\[IndentingNewLine]", 
+        RowBox[{"cD", "=", "0"}], ";", "\n", 
+        RowBox[{"cWlist", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"cW", "[", 
+            RowBox[{"[", 
+             RowBox[{"draw", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "]"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "nsites"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"eWlist", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"eW", "[", 
+            RowBox[{"[", 
+             RowBox[{"draw", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "]"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "nsites"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"eDlist", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"eD", "[", 
+            RowBox[{"[", 
+             RowBox[{"draw", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "]"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"j", ",", "nsites"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"cDlist", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{"cD", ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "nsites"}], "}"}]}], "]"}]}], ";", "\n", 
+        RowBox[{"(*", 
+         RowBox[{"state", " ", "at", " ", "time", " ", "zero"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"initial", " ", "state", " ", "of", " ", "occupancy"}], 
+         "*)"}], "\n", 
+        RowBox[{"psilist", "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"psi", "[", 
+            RowBox[{"[", 
+             RowBox[{
+              RowBox[{"draw", "[", 
+               RowBox[{"[", "j", "]"}], "]"}], ",", "k"}], "]"}], "]"}], ",", 
+           
+           RowBox[{"{", 
+            RowBox[{"j", ",", "nsites"}], "}"}]}], "]"}]}], ";", "\n", 
+        RowBox[{
+         RowBox[{"occupancy", "[", "0", "]"}], "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"RandomReal", "[", "]"}], "<", 
+              RowBox[{"psilist", "[", 
+               RowBox[{"[", "i", "]"}], "]"}]}], ",", "1", ",", "0"}], "]"}], 
+           ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "nsites"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"initial", " ", "dry", " ", "state"}], "*)"}], "\n", 
+        RowBox[{"dry0", "=", 
+         RowBox[{"RandomInteger", "[", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", "15"}], "}"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"drystate", "[", "0", "]"}], "=", 
+         RowBox[{"Table", "[", 
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"RandomReal", "[", "]"}], "<", 
+              RowBox[{"sitesimul", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "dry0"}], "]"}], "]"}]}], ",", "0", ",", 
+             "1"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"i", ",", "nsites"}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+         "Simulate", " ", "occupied", " ", "state", " ", "each", " ", 
+          "year"}], "*)"}], "\n", 
+        RowBox[{
+         RowBox[{"For", "[", 
+          RowBox[{
+           RowBox[{"t", "=", "0"}], ",", 
+           RowBox[{"t", "<", "1000"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"(*", 
+            RowBox[{
+            "function", " ", "to", " ", "compute", " ", "average", " ", 
+             "occupancy", " ", "time", " ", "t"}], "*)"}], 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"averageoccupancy", "[", "t", "]"}], "=", 
+             RowBox[{"Mean", "[", 
+              RowBox[{"occupancy", "[", "t", "]"}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+             "Continue", " ", "simulation", " ", "as", " ", "long", " ", "as",
+               " ", "metapopulation", " ", "is", " ", "not", " ", "extinct"}],
+              "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"averageoccupancy", "[", "t", "]"}], "\[Equal]", "0"}],
+               ",", 
+              RowBox[{"Break", "[", "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{
+               "draw", " ", "an", " ", "observed", " ", "year", " ", "to", 
+                " ", "associate", " ", "with", " ", "simulated", " ", 
+                "year"}], "*)"}], "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"simyear", "=", 
+                RowBox[{"RandomInteger", "[", 
+                 RowBox[{"{", 
+                  RowBox[{"1", ",", "15"}], "}"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{"iterate", " ", "t"}], "*)"}], "\[IndentingNewLine]", 
+               
+               RowBox[{"t", "=", 
+                RowBox[{"t", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{
+                  "draw", " ", "dry", " ", "state", " ", "at", " ", "time", 
+                   " ", "t"}], "+", 
+                  RowBox[{
+                  "1", " ", "from", " ", "associated", " ", "observed", " ", 
+                   "year"}]}], ";", " ", 
+                 RowBox[{
+                 "function", " ", "defined", " ", "by", " ", "a", " ", 
+                  "recursion", " ", "backwards", " ", "but", " ", "keeps", 
+                  " ", "values", " ", "in", " ", "memory"}]}], "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"drystate", "[", "t", "]"}], "=", 
+                RowBox[{"Table", "[", 
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"RandomReal", "[", "]"}], "<", 
+                    RowBox[{"sitesimul", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "simyear"}], "]"}], "]"}]}], ",", "0", 
+                    ",", "1"}], "]"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "nsites"}], "}"}]}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"occupancy", "[", "t", "]"}], "=", 
+                RowBox[{"Table", "[", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"Switch", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    SubscriptBox[
+                    RowBox[{"drystate", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]], 
+                    ",", 
+                    SubscriptBox[
+                    RowBox[{"drystate", "[", "t", "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}],
+                     "}"}], ",", "\[IndentingNewLine]", 
+                    "                                                 ", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "1"}], "}"}], ",", " ", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{
+                    "site", " ", "dry", " ", "at", " ", "times", " ", "t"}], 
+                    "-", 
+                    RowBox[{"1", " ", "and", " ", "t"}]}], "*)"}], 
+                    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+                    "\t\t\t\t\t\t\t", 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", 
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}],
+                     ")"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    SubscriptBox["cDlist", 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], "+", " ", 
+                    StyleBox[
+                    RowBox[{"(*", 
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "empty", " ", "site"}], "*)"}],
+                    FontColor->RGBColor[0, 0, 1]], "\[IndentingNewLine]", 
+                    "                                                         \
+         ", 
+                    RowBox[{
+                    StyleBox[
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    SubscriptBox[
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["e",
+                    FontColor->RGBColor[1, 0, 0]], "Dlist"}]], 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 0]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    SubscriptBox["cDlist", 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 0]]}]}]}], ",", "  ", 
+                    "\[IndentingNewLine]", 
+                    "                                                         \
+        ", 
+                    RowBox[{
+                    StyleBox["(*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "occupied", " ", "site"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[";",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[" ",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{
+                    "in", " ", "pink", " ", "the", " ", "site", " ", "got", 
+                    " ", "extinct", " ", "then", " ", "recolonised"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]]}], 
+                    StyleBox["\[IndentingNewLine]",
+                    FontColor->RGBColor[0, 0, 1]], "\[IndentingNewLine]", 
+                    "                                                 ", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "0"}], "}"}], ",", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{
+                    "site", " ", "dry", " ", "at", " ", "t", " ", "and", " ", 
+                    "wet", " ", "at", " ", "t"}], "+", "1"}], "*)"}], 
+                    "\[IndentingNewLine]", "\t\t\t\t\t\t\t", 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", 
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}],
+                     ")"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    SubscriptBox["cWlist", 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], "+", " ", 
+                    StyleBox[
+                    RowBox[{"(*", 
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "empty", " ", "site"}], "*)"}],
+                    FontColor->RGBColor[0, 0, 1]], "\[IndentingNewLine]", 
+                    "                                                         \
+        ", 
+                    RowBox[{
+                    StyleBox[
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    SubscriptBox["eDlist", 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 0]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    SubscriptBox["cWlist", 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 0]]}]}]}], ",", "  ", 
+                    "\[IndentingNewLine]", 
+                    "                                                         \
+        ", 
+                    RowBox[{
+                    StyleBox["(*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "occupied", " ", "site"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[";",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[" ",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{
+                    "in", " ", "pink", " ", "the", " ", "site", " ", "got", 
+                    " ", "extinct", " ", "then", " ", "recolonised"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]]}], "\[IndentingNewLine]",
+                     "\[IndentingNewLine]", 
+                    "                                                  ", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], ",", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{
+                    "site", " ", "wet", " ", "at", " ", "t", " ", "and", " ", 
+                    "dry", " ", "at", " ", "t"}], "+", "1"}], "*)"}], 
+                    "\[IndentingNewLine]", "\t\t\t\t\t\t\t", 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", 
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}],
+                     ")"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    SubscriptBox["cDlist", 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], "+", " ", 
+                    StyleBox[
+                    RowBox[{"(*", 
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "empty", " ", "site"}], "*)"}],
+                    FontColor->RGBColor[0, 0, 1]], "\[IndentingNewLine]", 
+                    "                                                         \
+         ", 
+                    RowBox[{
+                    StyleBox[
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    SubscriptBox[
+                    StyleBox["eWlist",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 0]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    SubscriptBox["cDlist", 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 0]]}]}]}], ",", "  ", 
+                    "\[IndentingNewLine]", 
+                    "                                                         \
+        ", 
+                    RowBox[{
+                    StyleBox["(*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "occupied", " ", "site"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[";",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[" ",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{
+                    "in", " ", "pink", " ", "the", " ", "site", " ", "got", 
+                    " ", "extinct", " ", "then", " ", "recolonised"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]]}], "\[IndentingNewLine]",
+                     "\[IndentingNewLine]", 
+                    "                                                  ", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0"}], "}"}], ",", " ", 
+                    RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{
+                    "site", " ", "wet", " ", "at", " ", "t", " ", "and", "  ",
+                     "t"}], "+", "1"}], "*)"}], "\[IndentingNewLine]", 
+                    "\t\t\t\t\t\t\t", 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"(", 
+                    RowBox[{"1", "-", 
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]]}],
+                     ")"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    SubscriptBox["cWlist", 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[0, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[0, 0, 1]]}]}], "+", " ", 
+                    StyleBox[
+                    RowBox[{"(*", 
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "empty", " ", "site"}], "*)"}],
+                    FontColor->RGBColor[0, 0, 1]], "\[IndentingNewLine]", 
+                    "                                                         \
+         ", 
+                    RowBox[{
+                    StyleBox[
+                    SubscriptBox[
+                    RowBox[{"occupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}], 
+                    RowBox[{
+                    "\[LeftDoubleBracket]", "j", "\[RightDoubleBracket]"}]],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    SubscriptBox["eWlist", 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 0]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox["If",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{"RandomReal", "[", "]"}],
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["<",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["(",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    StyleBox["Exp",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["[",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    RowBox[{
+                    RowBox[{
+                    StyleBox["-",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    SubscriptBox["cWlist", 
+                    RowBox[{"\[LeftDoubleBracket]", 
+                    RowBox[{"j", ",", "simyear"}], 
+                    "\[RightDoubleBracket]"}]]}], 
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[
+                    RowBox[{"averageoccupancy", "[", 
+                    RowBox[{"t", "-", "1"}], "]"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[")",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["1",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[",",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox["0",
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 1]]}]}], 
+                    StyleBox["]",
+                    FontColor->RGBColor[1, 0, 0]]}]}]}]}], "  ", 
+                   "\[IndentingNewLine]", 
+                   "                                                          \
+       ", 
+                   RowBox[{
+                    StyleBox["(*",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    RowBox[{
+                    StyleBox[
+                    RowBox[{
+                    "what", " ", "happens", " ", "to", " ", "an", " ", 
+                    "initially", " ", "occupied", " ", "site"}],
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[";",
+                    FontColor->RGBColor[1, 0, 0]], 
+                    StyleBox[" ",
+                    FontColor->RGBColor[0, 0, 1]], 
+                    StyleBox[
+                    RowBox[{
+                    "in", " ", "pink", " ", "the", " ", "site", " ", "got", 
+                    " ", "extinct", " ", "then", " ", "recolonised"}],
+                    FontColor->RGBColor[1, 0, 1]]}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["*",
+                    FontColor->RGBColor[1, 0, 1]], 
+                    StyleBox[")",
+                    FontColor->RGBColor[0, 0, 1]]}]]}], "]"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"{", 
+                   RowBox[{"j", ",", "nsites"}], "}"}]}], 
+                 "\[IndentingNewLine]", "]"}]}], ";"}]}], 
+             "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"occupancyrecord", "[", 
+           RowBox[{"[", "r", "]"}], "]"}], "=", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"averageoccupancy", "[", "i", "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"i", ",", "999"}], "}"}]}], "]"}]}]}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+     RowBox[{"Export", "[", 
+      RowBox[{
+       RowBox[{
+       "\"\</Users/jhpantel/OneDrive/Documents/CNRS/pantel_work/manuscript/1_\
+metapopulation_manuscript/Accepted_Version/raw_output/simulation/simulmetapop_\
+V04/\>\"", "<>", 
+        RowBox[{"spec", "[", 
+         RowBox[{"[", "k", "]"}], "]"}], "<>", "\"\<_result.csv\>\""}], ",", 
+       RowBox[{"N", "[", "occupancyrecord", "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Print", "[", "k", "]"}]}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.667110128598792*^9, 3.667110129230714*^9}, {
+   3.6671101619139147`*^9, 3.6671101634642963`*^9}, 3.667110204712019*^9, {
+   3.667110256117366*^9, 3.6671102567594347`*^9}, {3.6671103139519987`*^9, 
+   3.667110339238346*^9}, {3.6671103919092827`*^9, 3.667110394210939*^9}, {
+   3.667110428068266*^9, 3.667110440031148*^9}, {3.667110624179674*^9, 
+   3.667110640476939*^9}, {3.6671107126627483`*^9, 3.667110721973591*^9}, {
+   3.667110986711937*^9, 3.6671109887677097`*^9}, {3.667111613048113*^9, 
+   3.667111621332686*^9}, {3.667111731719305*^9, 3.667111740601371*^9}, {
+   3.667199290471706*^9, 3.667199311810053*^9}, {3.667199486214699*^9, 
+   3.667199493948556*^9}, {3.667199534362134*^9, 3.667199548304618*^9}, {
+   3.667199693091001*^9, 3.6671997050534363`*^9}, 3.667199766664577*^9, {
+   3.667199803141766*^9, 3.667199849183771*^9}, {3.667200010498082*^9, 
+   3.667200013109336*^9}, {3.6672001324016523`*^9, 3.6672002298886003`*^9}, {
+   3.667200288144855*^9, 3.667200305204575*^9}, {3.667200670911483*^9, 
+   3.6672006835687513`*^9}, {3.667201579584464*^9, 3.667201614331078*^9}, {
+   3.667201796999029*^9, 3.667201832140036*^9}, {3.667203047809552*^9, 
+   3.6672030637931843`*^9}, {3.667204118367117*^9, 3.667204129119096*^9}, {
+   3.667235536979671*^9, 3.6672355414665203`*^9}, {3.667235581466403*^9, 
+   3.6672355953128443`*^9}, {3.667454558141572*^9, 3.667454565056718*^9}, {
+   3.667454671152115*^9, 3.667454745673895*^9}, {3.667454910214016*^9, 
+   3.667454910671926*^9}, {3.667455370634583*^9, 3.667455372810454*^9}, {
+   3.667997101311863*^9, 3.667997109675104*^9}, {3.667997211275023*^9, 
+   3.667997251112173*^9}, {3.6679973277180433`*^9, 3.667997328541239*^9}, {
+   3.667997623974018*^9, 3.667997628116555*^9}, {3.6679993400509567`*^9, 
+   3.667999341398045*^9}, {3.668241573085353*^9, 3.6682416137536325`*^9}, {
+   3.6929633189422197`*^9, 3.6929633623666067`*^9}, {3.692963417102477*^9, 
+   3.69296347134886*^9}, {3.692963535897958*^9, 3.692963562943956*^9}, {
+   3.693199857773464*^9, 3.69319987087656*^9}, {3.844959841465693*^9, 
+   3.8449599052951307`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"ec0462eb-0925-47d7-8b31-3941b66b0fb0"],
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"occupancyrecord", "[", 
+        RowBox[{"[", 
+         RowBox[{"k", ",", "i"}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "999"}], "}"}]}], "]"}], ",", 
+     RowBox[{"PlotJoined", "\[Rule]", "True"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k", ",", "24"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.667111412978784*^9, 3.667111450891037*^9}, {
+  3.667199458084778*^9, 3.6671994583718357`*^9}, {3.6672030119781237`*^9, 
+  3.667203012065277*^9}, {3.6672189351614723`*^9, 
+  3.667218935240219*^9}},ExpressionUUID->"d1c7d2d2-d3a1-4ea0-b01f-\
+e1b3abd53ad5"]
+},
+WindowSize->{819, 933},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.3 for Mac OS X x86 (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"9fd6010d-cdce-4f48-8612-2dae9abb8baa"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4534, 90, 514, "Input",ExpressionUUID->"4de0c904-b419-4f0d-82b1-0ecdd8acc782"],
+Cell[5095, 112, 52166, 1202, 2510, "Input",ExpressionUUID->"ec0462eb-0925-47d7-8b31-3941b66b0fb0"],
+Cell[57264, 1316, 739, 19, 30, "Input",ExpressionUUID->"d1c7d2d2-d3a1-4ea0-b01f-e1b3abd53ad5"]
+}
+]
+*)
+

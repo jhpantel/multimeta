@@ -1,0 +1,173 @@
+model {
+##########
+# PRIORS #
+##########
+
+psiGT ~ dunif(0, 1)
+psiMG ~ dunif(0, 1) 
+pM ~ dunif(0,1)
+
+beta[1] ~ dunif(0,1)
+
+beta[2] ~ dunif(0,1)
+ 
+beta[3] ~ dunif(0,1)
+
+beta[4] <- 0
+
+for(i in 1:nsite){
+for(j in 1:(nyear-1)){
+phiM[i,j] <- beta[1]
+phiS[i,j] <-  beta[3]
+CM[i,j] <- beta[2]
+CS[i,j] <- beta[4]
+}
+}
+
+#####################
+# DEFINE PARAMETERS #
+#####################
+
+for (i in 1:250){
+# probabilities for each initial state
+px0[i,1] <- 1-psiGT
+px0[i,2] <- psiGT 
+}
+for (i in 251:nsite){
+# probabilities for each initial state
+px0[i,1] <- 1-psiMG
+px0[i,2] <- psiMG 
+}
+
+for (j in 1:(nyear-1)){  
+
+SigGT[j] <- mean(z[1:250,j])-1
+SigMG[j] <- mean(z[251:nsite,j])-1
+
+    for (i in 1:250){
+
+		# define probabilities of X(t+1) given X(t) / 1er indice = ligne		
+		px[1,i,j,1] <- X[i,j] * X[i,j+1] * PxA[1,i,j,1] + X[i,j] * (1-X[i,j+1]) * PxB[1,i,j,1] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[1,i,j,1] + (1-X[i,j]) * X[i,j+1] * PxD[1,i,j,1]
+		px[1,i,j,2] <- X[i,j] * X[i,j+1] * PxA[1,i,j,2] + X[i,j] * (1-X[i,j+1]) * PxB[1,i,j,2] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[1,i,j,2] + (1-X[i,j]) * X[i,j+1] * PxD[1,i,j,2]
+		px[2,i,j,1] <- X[i,j] * X[i,j+1] * PxA[2,i,j,1] + X[i,j] * (1-X[i,j+1]) * PxB[2,i,j,1] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[2,i,j,1] + (1-X[i,j]) * X[i,j+1] * PxD[2,i,j,1]
+		px[2,i,j,2] <- X[i,j] * X[i,j+1] * PxA[2,i,j,2] + X[i,j] * (1-X[i,j+1]) * PxB[2,i,j,2] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[2,i,j,2] + (1-X[i,j]) * X[i,j+1] * PxD[2,i,j,2]
+		
+		#### sous matrice de transition d'un site sec à l'année (j) vers un site sec l'année (j+1) 
+		PxA[1,i,j,1] <- 1-(1-exp(-CS[i,j]*SigGT[j]))
+		PxA[1,i,j,2] <- (1-exp(-CS[i,j]*SigGT[j]))
+		PxA[2,i,j,1] <- (1-phiS[i,j]) * (1-(1-exp(-CS[i,j]*SigGT[j])))
+		PxA[2,i,j,2] <- phiS[i,j] + (1-phiS[i,j]) * (1-exp(-CS[i,j]*SigGT[j]))		
+
+		#### sous matrice de transition d'un site sec à l'année (j) vers un site mouillé l'année (j+1) 
+		PxB[1,i,j,1] <- 1-(1-exp(-CM[i,j]*SigGT[j]))
+		PxB[1,i,j,2] <- (1-exp(-CM[i,j]*SigGT[j]))
+		PxB[2,i,j,1] <- (1-phiS[i,j]) * (1-(1-exp(-CM[i,j]*SigGT[j])))
+		PxB[2,i,j,2] <- phiS[i,j] + (1-phiS[i,j]) * (1-exp(-CM[i,j]*SigGT[j]))		
+
+		#### sous matrice de transition d'un site mouillé à l'année (j) vers un site mouillé l'année (j+1) 
+		PxC[1,i,j,1] <- 1-(1-exp(-CM[i,j]*SigGT[j]))
+		PxC[1,i,j,2] <- (1-exp(-CM[i,j]*SigGT[j]))
+		PxC[2,i,j,1] <- (1-phiM[i,j]) * (1-(1-exp(-CM[i,j]*SigGT[j])))
+		PxC[2,i,j,2] <- phiM[i,j] + (1-phiM[i,j]) * (1-exp(-CM[i,j]*SigGT[j]))
+		
+		#### sous matrice de transition d'un site mouillé à l'année (j) vers un site sec l'année (j+1) 
+		PxD[1,i,j,1] <- 1-(1-exp(-CS[i,j]*SigGT[j]))
+		PxD[1,i,j,2] <- (1-exp(-CS[i,j]*SigGT[j]))
+		PxD[2,i,j,1] <- (1-phiM[i,j]) * (1-(1-exp(-CS[i,j]*SigGT[j])))
+		PxD[2,i,j,2] <- phiM[i,j] + (1-phiM[i,j]) * (1-exp(-CS[i,j]*SigGT[j]))
+}
+
+    for (i in 251:nsite){
+
+		# define probabilities of X(t+1) given X(t) / 1er indice = ligne		
+		px[1,i,j,1] <- X[i,j] * X[i,j+1] * PxA[1,i,j,1] + X[i,j] * (1-X[i,j+1]) * PxB[1,i,j,1] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[1,i,j,1] + (1-X[i,j]) * X[i,j+1] * PxD[1,i,j,1]
+		px[1,i,j,2] <- X[i,j] * X[i,j+1] * PxA[1,i,j,2] + X[i,j] * (1-X[i,j+1]) * PxB[1,i,j,2] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[1,i,j,2] + (1-X[i,j]) * X[i,j+1] * PxD[1,i,j,2]
+		px[2,i,j,1] <- X[i,j] * X[i,j+1] * PxA[2,i,j,1] + X[i,j] * (1-X[i,j+1]) * PxB[2,i,j,1] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[2,i,j,1] + (1-X[i,j]) * X[i,j+1] * PxD[2,i,j,1]
+		px[2,i,j,2] <- X[i,j] * X[i,j+1] * PxA[2,i,j,2] + X[i,j] * (1-X[i,j+1]) * PxB[2,i,j,2] + (1-X[i,j]) * (1-X[i,j+1]) * PxC[2,i,j,2] + (1-X[i,j]) * X[i,j+1] * PxD[2,i,j,2]
+		
+		#### sous matrice de transition d'un site sec à l'année (j) vers un site sec l'année (j+1) 
+		PxA[1,i,j,1] <- 1-(1-exp(-CS[i,j]*SigMG[j]))
+		PxA[1,i,j,2] <- (1-exp(-CS[i,j]*SigMG[j]))
+		PxA[2,i,j,1] <- (1-phiS[i,j]) * (1-(1-exp(-CS[i,j]*SigMG[j])))
+		PxA[2,i,j,2] <- phiS[i,j] + (1-phiS[i,j]) * (1-exp(-CS[i,j]*SigMG[j]))		
+
+		#### sous matrice de transition d'un site sec à l'année (j) vers un site mouillé l'année (j+1) 
+		PxB[1,i,j,1] <- 1-(1-exp(-CM[i,j]*SigMG[j]))
+		PxB[1,i,j,2] <- (1-exp(-CM[i,j]*SigMG[j]))
+		PxB[2,i,j,1] <- (1-phiS[i,j]) * (1-(1-exp(-CM[i,j]*SigMG[j])))
+		PxB[2,i,j,2] <- phiS[i,j] + (1-phiS[i,j]) * (1-exp(-CM[i,j]*SigMG[j]))		
+
+		#### sous matrice de transition d'un site mouillé à l'année (j) vers un site mouillé l'année (j+1) 
+		PxC[1,i,j,1] <- 1-(1-exp(-CM[i,j]*SigMG[j]))
+		PxC[1,i,j,2] <- (1-exp(-CM[i,j]*SigMG[j]))
+		PxC[2,i,j,1] <- (1-phiM[i,j]) * (1-(1-exp(-CM[i,j]*SigMG[j])))
+		PxC[2,i,j,2] <- phiM[i,j] + (1-phiM[i,j]) * (1-exp(-CM[i,j]*SigMG[j]))
+		
+		#### sous matrice de transition d'un site mouillé à l'année (j) vers un site sec l'année (j+1) 
+		PxD[1,i,j,1] <- 1-(1-exp(-CS[i,j]*SigMG[j]))
+		PxD[1,i,j,2] <- (1-exp(-CS[i,j]*SigMG[j]))
+		PxD[2,i,j,1] <- (1-phiM[i,j]) * (1-(1-exp(-CS[i,j]*SigMG[j])))
+		PxD[2,i,j,2] <- phiM[i,j] + (1-phiM[i,j]) * (1-exp(-CS[i,j]*SigMG[j]))
+}
+}
+
+    for (i in 1:nsite){
+		for (j in 1:nyear){
+		
+	# define probabilities of O(t) given X(t)
+		
+		po[1,i,j,1] <- (1-X[i,j]) * PoA[1,i,j,1] + X[i,j] * PoB[1,i,j,1]
+		po[1,i,j,2] <- (1-X[i,j]) * PoA[1,i,j,2] + X[i,j] * PoB[1,i,j,2]
+		po[2,i,j,1] <- (1-X[i,j]) * PoA[2,i,j,1] + X[i,j] * PoB[2,i,j,1]
+		po[2,i,j,2] <- (1-X[i,j]) * PoA[2,i,j,2] + X[i,j] * PoB[2,i,j,2]		
+
+		# sous matrice des probabilités de O(t) given X(t) dans des sites mouillés
+		PoA[1,i,j,1] <- 1
+		PoA[1,i,j,2] <- 0
+		PoA[2,i,j,1] <- 1-pM
+		PoA[2,i,j,2] <- pM
+
+		# sous matrice des probabilités de O(t) given X(t) dans des sites secs
+		PoB[1,i,j,1] <- 1
+		PoB[1,i,j,2] <- 0
+		PoB[2,i,j,1] <- 1
+		PoB[2,i,j,2] <- 0
+
+}
+}	
+
+	################################
+	# STATE-SPACE MODEL LIKELIHOOD #
+	################################
+	
+#for(i in 1:nsite){
+#  	# t=1
+#  	z[i,e[i]] ~ dcat(px0[i,1:2])
+#}
+
+for(i in 1:nsite){
+  	  	z[i,1] ~ dcat(px0[i,1:2])
+}
+
+for(i in 1:nsite){
+for(j in 2:nyear){
+	## STATE EQUATIONS ##
+	# draw X(t) given X(t-1)
+	z[i,j] ~ dcat(px[z[i,j-1],i,j-1,1:2])
+		}
+	}
+
+	## OBSERVATION EQUATIONS ##
+	# draw O(t) given X(t)
+
+ 	for(i in 1:nsite){
+	for(j in e[i]:fin[i]){
+ 	for(t in 1:nrep){
+	y[i,j,t] ~ dcat(po[z[i,j],i,j,1:2])
+
+	}
+	}
+	}
+
+
+}
