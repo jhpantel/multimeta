@@ -7,11 +7,11 @@ Pantel, J.H., T. Lamy, M. Dubart, J.-P. Pointier, P. Jarne, and P. David. 202x. 
 # Table of Contents
 *data_for_submission* contains the files included in the manuscript supplemened DataS1 and Data S2. DataS1 is the folder with the data + model without covariates. Each directory contains the raw data files (dry_final.txt, presence.txt, state.txt) needed to run the R script JHP_JAGS.R (which calls the JAGS model model_full.txt. DataS2 is the folder with the data + model including covariates. Each directory contains the raw data files (dry_final.txt, presence.txt, state.txt, colsource.txt, cov.txt, habit.txt, pluvio.txt) needed to run the R script JHP_JAGS_covar.R (which calls the JAGS model model_2_cov.txt).
 
--|data_for_submission
--| |-DataS1
--| |-DataS2
--| |-MetadataS1.txt
--| |-MetadataS2.txt
+- |data_for_submission
+- | |-DataS1
+- | |-DataS2
+- | |-MetadataS1.txt
+- | |-MetadataS2.txt
 
 *results* contains the files used in DataS1 (for no_covar) and DataS2 (for covar) to produce JAGS results files, and all of the JAGS results files (fjsample.RData). All of the jsample.RData results files contained here are the results obtained and analyzed in Pantel et al. 202x. They are called in the main posthoc analysis script script_V01.R.
 
