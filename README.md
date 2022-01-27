@@ -1,8 +1,8 @@
 # multimeta
-The files and code contained here are associated with Pantel et al. 202x, Metapopulation dynamics of multiple species in a heterogeneous landscape.
+The files and code contained here are associated with Pantel et al. 2022, Metapopulation dynamics of multiple species in a heterogeneous landscape.
 
 # Citations
-Pantel, J.H., T. Lamy, M. Dubart, J.-P. Pointier, P. Jarne, and P. David. 202x. Metapopulation dynamics of multiple species in a heterogeneous landscape. Ecological Monographs. In press.
+Pantel, J.H., T. Lamy, M. Dubart, J.-P. Pointier, P. Jarne, and P. David. 2022. Metapopulation dynamics of multiple species in a heterogeneous landscape. Ecological Monographs. In press.
 
 # Table of Contents
 *data_for_submission* contains the files included in the manuscript supplemened DataS1 and Data S2. DataS1 is the folder with the data + model without covariates. Each directory contains the raw data files (dry_final.txt, presence.txt, state.txt) needed to run the R script JHP_JAGS.R (which calls the JAGS model model_full.txt. DataS2 is the folder with the data + model including covariates. Each directory contains the raw data files (dry_final.txt, presence.txt, state.txt, colsource.txt, cov.txt, habit.txt, pluvio.txt) needed to run the R script JHP_JAGS_covar.R (which calls the JAGS model model_2_cov.txt).
